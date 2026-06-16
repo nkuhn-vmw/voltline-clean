@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltline Store</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="brand">Voltline</h1>
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="catalog-grid">
+            <div th:each="product : ${products}" class="product-card">
+                <div class="product-image">
+                    <img th:src="${product.imageUrl}" th:alt="${product.name}">
+                </div>
+                <div class="product-info">
+                    <span class="category" th:text="${product.category}">Category</span>
+                    <h3 th:text="${product.name}">Product Name</h3>
+                    <p class="price" th:text="'$' + ${product.priceUsd}">$0.00</p>
+                    <a th:href="@{'/product/' + ${product.id}}" class="view-details">View Details</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Voltline Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

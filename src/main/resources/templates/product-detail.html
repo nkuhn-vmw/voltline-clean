@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail - VoltLine</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <a th:href="@{/}" class="back-link">&larr; Back to Catalog</a>
+        
+        <div class="product-detail">
+            <img th:src="${product.imageUrl}" th:alt="${product.name}" class="product-image">
+            
+            <div class="product-info">
+                <h1 th:text="${product.name}">Product Name</h1>
+                <p class="category" th:text="${product.category}">Category</p>
+                <p class="price" th:text="${'$' + product.priceUsd}">$0.00</p>
+                <p class="description" th:text="${product.description}">Product Description</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
